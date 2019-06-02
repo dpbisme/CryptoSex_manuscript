@@ -1,0 +1,13 @@
+{
+	"n_targets": 3805,
+	"n_bootstraps": 60,
+	"n_processed": 59982907,
+	"n_pseudoaligned": 33801090,
+	"n_unique": 33795043,
+	"p_pseudoaligned": 56.4,
+	"p_unique": 56.3,
+	"kallisto_version": "0.45.0",
+	"index_version": 10,
+	"start_time": "Thu May 23 22:16:30 2019",
+	"call": "kallisto quant -i CryptoIndex -o crypto_sporo_rep2 -t 24 -b 60 --single -l 250 -s 30 Sporo-mRNA_S5_mergedLanes_R1.fastq.gz"
+}

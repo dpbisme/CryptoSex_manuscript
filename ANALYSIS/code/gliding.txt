@@ -1,0 +1,9 @@
+geneSymbol
+cgd6_4460
+cgd6_2220
+cgd6_1500
+cgd7_550
+cgd6_2210
+cgd2_640
+cgd7_4420
+cgd7_3790

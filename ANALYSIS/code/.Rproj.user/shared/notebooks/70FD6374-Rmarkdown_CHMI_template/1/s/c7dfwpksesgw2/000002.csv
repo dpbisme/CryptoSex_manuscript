@@ -1,0 +1,8 @@
+"0","library(tidyverse)
+"
+"2","Error: package or namespace load failed for ‘tidyverse’:
+ .onAttach failed in attachNamespace() for 'tidyverse', details:
+  call: value[[3L]](cond)
+  error: Package ‘tibble’ version 2.1.1 cannot be unloaded:
+ Error in unloadNamespace(package) : namespace ‘tibble’ is imported by ‘haven’, ‘dplyr’, ‘modelr’, ‘broom’, ‘readr’, ‘ggplot2’, ‘tidyr’ so cannot be unloaded
+"

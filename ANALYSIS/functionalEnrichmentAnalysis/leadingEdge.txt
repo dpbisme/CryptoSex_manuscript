@@ -1,0 +1,28 @@
+carbohydrate_metabolism	oocyst_proteomics	DNA_metab	oxidation-reduction
+cgd2_210	cgd7_4810	cgd2_510	cgd6_3720
+cgd3_1580	cgd7_300	cgd3_390	cgd8_920
+cgd6_3280	cgd6_200	cgd7_1690	cgd7_1000
+cgd6_3750	cgd2_790	cgd3_3820	cgd8_1720
+cgd3_1400	cgd8_1720	cgd8_1350	cgd3_3430
+cgd5_2910	cgd7_1730	cgd6_4420	cgd8_1700
+cgd5_3140	cgd2_490	cgd5_2560	cgd2_210
+cgd7_910	cgd3_3430	cgd8_1630	cgd2_2510
+cgd2_3270	cgd6_2090	cgd8_4950	cgd8_4230
+cgd6_2450	cgd4_3090	cgd8_1410	cgd3_2180
+cgd8_4940	cgd7_3120	cgd2_2500	cgd8_2670
+cgd2_3260		cgd6_2610	cgd8_380
+cgd1_3060		cgd8_1620	cgd6_3280
+cgd6_3800		cgd6_1580	cgd3_460
+cgd7_4270		cgd8_610	cgd4_690
+cgd1_2040		cgd2_4070	cgd6_3750
+cgd4_2600		cgd5_410	cgd4_2900
+cgd6_3790		cgd8_3950	
+cgd1_3020		cgd3_3110	
+		cgd6_1710	
+		cgd7_3110	
+		cgd6_1950	
+		cgd4_440	
+		cgd7_4730	
+		cgd7_2140	
+		cgd6_1940	
+		cgd6_5040	

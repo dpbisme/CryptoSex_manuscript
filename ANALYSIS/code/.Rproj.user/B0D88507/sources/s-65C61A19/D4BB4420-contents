@@ -1,0 +1,184 @@
+### carbohydrate metabolism
+```{r leading edge carb_metab}
+leadingEdge <- read_tsv("../functionalEnrichmentAnalysis/leadingEdge.txt")
+#convert to a matrix so you can carry out clustering
+carb_metab <- leadingEdge %>%
+  dplyr::rename(geneSymbol = carbohydrate_metabolism) %>%
+  dplyr::select(-"oocyst_proteomics", -"DNA_metab", -"oxidation-reduction") %>%
+  dplyr::left_join(normData, by="geneSymbol") %>%
+  dplyr::filter(!is.na(geneSymbol))
+
+carb_metab <- column_to_rownames(carb_metab, 'geneSymbol')
+carb_metab <- as.matrix(carb_metab)
+
+heatmap.2(carb_metab, 
+          Rowv=NA, 
+          Colv=NA,
+          col=myheatcol, scale='row',
+          density.info="none", trace="none",  
+          margins = c(10,18),
+          cexRow=1, cexCol=0.75) 
+
+```
+
+### oocyst proteomics
+```{r leading edge oocyst_proteome}
+oocyst_proteomics <- leadingEdge %>%
+  dplyr::rename(geneSymbol = oocyst_proteomics) %>%
+  dplyr::select(-"carbohydrate_metabolism", -"DNA_metab", -"oxidation-reduction") %>%
+  dplyr::left_join(normData, by="geneSymbol") %>%
+  dplyr::filter(!is.na(geneSymbol))
+
+oocyst_proteomics <- as.matrix(column_to_rownames(oocyst_proteomics, 'geneSymbol'))
+
+heatmap.2(oocyst_proteomics, 
+          Rowv=NA, 
+          Colv=NA,
+          col=myheatcol, scale='row',
+          key = FALSE,
+          density.info="none", trace="none",  
+          margins = c(10,18),
+          cexRow=0.75, cexCol=0.75) 
+```
+
+### DNA metabolic process (meiosis)
+```{r leading edge DNA_metab}
+DNA_metab <- leadingEdge %>%
+  dplyr::rename(geneSymbol = DNA_metab) %>%
+  dplyr::select(-"carbohydrate_metabolism", -"oocyst_proteomics", -"oxidation-reduction") %>%
+  dplyr::left_join(normData, by="geneSymbol") %>%
+  dplyr::filter(!is.na(geneSymbol))
+
+DNA_metab <- as.matrix(column_to_rownames(DNA_metab, 'geneSymbol'))
+
+heatmap.2(DNA_metab, 
+          Rowv=NA, 
+          Colv=NA,
+          col=myheatcol, scale='row',
+          key = FALSE,
+          density.info="none", trace="none",  
+          margins = c(10,18),
+          cexRow=0.75, cexCol=0.75) 
+```
+
+### oxidation-reduction
+```{r leading edge oxidation-reduction}
+oxidoreductase <- leadingEdge %>%
+  dplyr::rename(geneSymbol = "oxidation-reduction") %>%
+  dplyr::select(-"carbohydrate_metabolism", -"oocyst_proteomics", -"DNA_metab") %>%
+  dplyr::left_join(normData, by="geneSymbol") %>%
+  dplyr::filter(!is.na(geneSymbol))
+
+oxidoreductase <- as.matrix(column_to_rownames(oxidoreductase, 'geneSymbol'))
+
+heatmap.2(oxidoreductase, 
+          Rowv=NA, 
+          Colv=NA,
+          col=myheatcol, scale='row',
+          key = FALSE,
+          density.info="none", trace="none",  
+          margins = c(10,18),
+          cexRow=0.75, cexCol=0.75) 
+```
+
+## UpSet plot
+```{r upset, eval=FALSE}
+#setting up new contrast matrix for more pairwise comparisons, this time incorporating samples from experiment #1 (see study design above)
+results.df <- as.data.frame(results, rownames = "Gene ID")
+GeneID <- rownames(results.df)
+rownames(results.df) <- NULL
+results.test <- cbind(GeneID, results.df)
+results.df <- results.df %>%
+  mutate(female.vs.asexual_invitro = abs(female.vs.asexual_invitro)) %>%
+  mutate(female_invivo.vs.invitro = abs(female_invivo.vs.invitro)) %>%
+  mutate(sporozoite.vs.female.invivo = abs(sporozoite.vs.female.invivo)) %>%
+  mutate(sporozoite.vs.asexual = abs(sporozoite.vs.asexual)) %>%
+  mutate(sexual.vs.female = abs(sexual.vs.female)) %>%
+  mutate(asexual.vs.sexual = abs(asexual.vs.sexual)) %>%
+  mutate(GeneID = GeneID) %>%
+  dplyr::select(GeneID, 
+                female.vs.asexual_invitro, 
+                female_invivo.vs.invitro, 
+                sporozoite.vs.female.invivo, 
+                sporozoite.vs.asexual, 
+                asexual.vs.sexual, 
+                sexual.vs.female)
+
+
+upset(results.df, 
+      sets = c("sporozoite.vs.asexual", 
+               "sporozoite.vs.female.invivo", 
+               "female.vs.asexual_invitro", 
+               "female_invivo.vs.invitro",
+               "asexual.vs.sexual"),
+      #nsets = 7, 
+      point.size = 2, line.size = 1, number.angles = 30, 
+      order.by = "freq",
+      mb.ratio = c(0.55, 0.45),
+      mainbar.y.label = "Number of genes",
+      sets.x.label = "DEGs for each pairwise comparison"
+)
+
+```
+
+## Identifying a sporozite specific transcriptional signature
+
+```{r DEGs}
+colnames(v.DEGList.batchCorrected$E) <- SampleLabels
+results <- decideTests(ebFit, method="global", adjust.method="BH", p.value=0.01, lfc=2)
+DiffGenes <- v.DEGList.batchCorrected$E[results[,1] ==1 
+                                        & results[,2] ==1
+                                        & results[,3] ==1,]
+
+DiffGenes.df <- as_tibble(DiffGenes, rownames="geneSymbol")
+
+DiffGenes.top <- mutate(DiffGenes.df,
+                        sporozoite.AVG = (crypto_sporo_rep1 + crypto_sporo_rep2 + crypto_sporo_rep3)/3,
+                        female_invivo.AVG = (female_invivo1 + female_invivo2 + female_invivo3 + female_invivo4)/4,
+                        asexual_invitro.AVG = (asexual_invitro1 + asexual_invitro2 + asexual_invitro3 + asexual_invitro4)/4,
+                        sexual_invitro.AVG = (crypto_48hr_rep1 + crypto_48hr_rep2 + crypto_48hr_rep3)/3,
+                        sporo.vs.female.LogFC = (sporozoite.AVG - female_invivo.AVG),
+                        sporo.vs.asexual.LogFC = (sporozoite.AVG - asexual_invitro.AVG),
+                        sporo.vs.sexual.LogFC = (sporozoite.AVG - sexual_invitro.AVG)) %>%
+  select(geneSymbol, sporozoite.AVG, female_invivo.AVG, asexual_invitro.AVG, sexual_invitro.AVG, sporo.vs.female.LogFC, sporo.vs.asexual.LogFC, sporo.vs.sexual.LogFC) %>%
+  mutate_if(is.numeric, round, 2) %>%
+  arrange(desc(sporo.vs.female.LogFC)) %>% 
+  select(geneSymbol, sporo.vs.female.LogFC, sporo.vs.asexual.LogFC, sporo.vs.sexual.LogFC) %>%
+  top_n(100, wt = sporo.vs.female.LogFC)
+
+write_tsv(DiffGenes.top, "sporoSig.txt")
+
+clustRows <- hclust(as.dist(1-cor(t(DiffGenes), method="pearson")), method="complete")
+clustColumns <- hclust(as.dist(1-cor(DiffGenes, method="spearman")), method="average")
+clust.assign <- cutree(clustRows, k=20)
+
+module.color <- rainbow(length(unique(clust.assign)), start=0.1, end=0.9) 
+module.color <- module.color[as.vector(clust.assign)] 
+
+heatmap.2(DiffGenes, 
+          Rowv=as.dendrogram(clustRows), 
+          Colv=as.dendrogram(clustColumns),
+          RowSideColors=module.color,
+          col=myheatcol, scale='row', labRow=NA,
+          density.info="none", trace="none",  
+          margins = c(10,10),
+          cexRow=1, cexCol=1) 
+
+
+```
+
+**`r nrow(DiffGenes)`** out of a total of `r nrow(v.DEGList.batchCorrected$E)` were identified as differentially expressed between sporozoites compared to asexual, sexual or female stages
+
+
+ggplot(pca.res.df, aes(x=PC1, y=PC2, color=sex, shape=origin)) +
+  geom_point(size=8) +
+  theme(legend.position="right") + 
+  xlab(paste0("PC1 (",pc.per[1],"%",")")) + 
+  ylab(paste0("PC2 (",pc.per[2],"%",")")) + 
+  #labs(title="PCA showing all data",
+  #subtitle = "Principal component analysis (PCA) \nshowing all samples after batch correction. \nClear separation based on stage and sex. \nThis plot corresponds to Figure XX in the manuscript.",
+  theme_bw() + 
+  theme(axis.text=element_text(size=16),
+        axis.title=element_text(size=18),
+        legend.text=element_text(size=14),
+        legend.title=element_text(size=16, face="bold"))

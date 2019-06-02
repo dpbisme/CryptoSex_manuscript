@@ -1,0 +1,87 @@
+oxidation-reduction	DNA_metab	carb_metab	oocyst_proteomics_20
+CryptoDB.org; GO:0055114	CryptoDB.org; GO:0006259	CryptoDB.org; GO:0005975	Truong and Ferrari, 2006. Genes with >= 20 unique peptide sequences per sample
+cgd1_3440	Cgd3_2720	cgd1_2040	cgd1_2040
+cgd2_210	cgd1_1420	cgd1_3020	cgd1_3020
+cgd2_2510	cgd1_310	cgd1_3060	cgd1_3170
+cgd2_3570	cgd2_1100	cgd2_210	cgd1_330
+cgd2_4320	cgd2_1250	cgd2_2130	cgd1_3710
+cgd3_2050	cgd2_1600	cgd2_3200	cgd1_3780
+cgd3_2180	cgd2_2060	cgd2_3260	cgd1_3810
+cgd3_3120	cgd2_2500	cgd2_3270	cgd1_590
+cgd3_3430	cgd2_3180	cgd3_1400	cgd1_640
+cgd3_3910	cgd2_40	cgd3_1580	cgd1_750
+cgd3_460	cgd2_4070	cgd4_2600	cgd2_20
+cgd3_990	cgd2_510	cgd4_3310	cgd2_2700
+cgd4_1330	cgd2_700	cgd5_1960	cgd2_3110
+cgd4_2700	cgd3_1450	cgd5_2910	cgd2_3200
+cgd4_2900	cgd3_3110	cgd5_3140	cgd2_3260
+cgd4_4460	cgd3_3170	cgd6_2450	cgd2_4320
+cgd4_690	cgd3_3820	cgd6_3280	cgd2_490
+cgd4_740	cgd3_390	cgd6_3750	cgd2_790
+cgd5_2440	cgd4_1490	cgd6_3790	cgd3_1290
+cgd5_2670	cgd4_1930	cgd6_3800	cgd3_1400
+cgd5_3230	cgd4_2053	cgd7_4270	cgd3_1770
+cgd5_70	cgd4_3920	cgd7_470	cgd3_3370
+cgd5_750	cgd4_430	cgd7_480	cgd3_3430
+cgd6_1950	cgd4_440	cgd7_910	cgd3_3770
+cgd6_20	cgd4_780	cgd8_1420	cgd4_2260
+cgd6_2470	cgd4_970	cgd8_1920	cgd4_2300
+cgd6_3280	cgd5_1180	cgd8_2160	cgd4_2600
+cgd6_3720	cgd5_2560	cgd8_4940	cgd4_3090
+cgd6_3750	cgd5_410		cgd4_3160
+cgd6_3790	cgd6_1580		cgd4_3270
+cgd6_3863	cgd6_1710		cgd4_3530
+cgd6_690	cgd6_1940		cgd5_1490
+cgd6_700	cgd6_1950		cgd5_1580
+cgd7_1000	cgd6_2390		cgd5_1640
+cgd7_1900	cgd6_240		cgd5_1960
+cgd7_270	cgd6_2610		cgd5_2070
+cgd7_470	cgd6_4420		cgd5_3160
+cgd7_480	cgd6_4783		cgd5_4400
+cgd7_4933	cgd6_5040		cgd5_70
+cgd8_1433	cgd7_1690		cgd5_750
+cgd8_1700	cgd7_1720		cgd6_120
+cgd8_1720	cgd7_2140		cgd6_200
+cgd8_2330	cgd7_2390		cgd6_2090
+cgd8_2670	cgd7_2920		cgd6_2450
+cgd8_3190	cgd7_3110		cgd6_3050
+cgd8_380	cgd7_3350		cgd6_3080
+cgd8_4230	cgd7_4730		cgd6_3190
+cgd8_920	cgd8_1240		cgd6_3790
+	cgd8_1350		cgd6_3920
+	cgd8_1410		cgd6_3990
+	cgd8_1620		cgd6_4460
+	cgd8_1630		cgd6_4760
+	cgd8_1940		cgd6_5440
+	cgd8_2020		cgd6_880
+	cgd8_2380		cgd7_1270
+	cgd8_2940		cgd7_1340
+	cgd8_370		cgd7_1730
+	cgd8_3950		cgd7_1830
+	cgd8_4650		cgd7_1890
+	cgd8_4950		cgd7_1900
+	cgd8_5410		cgd7_2250
+	cgd8_610		cgd7_300
+	cgd8_870		cgd7_3120
+			cgd7_360
+			cgd7_3670
+			cgd7_3790
+			cgd7_4020
+			cgd7_4280
+			cgd7_4450
+			cgd7_4500
+			cgd7_4760
+			cgd7_480
+			cgd7_4810
+			cgd7_5000
+			cgd7_910
+			cgd8_1270
+			cgd8_1720
+			cgd8_2790
+			cgd8_2930
+			cgd8_3430
+			cgd8_350
+			cgd8_3520
+			cgd8_3900
+			cgd8_430
+			cgd8_440

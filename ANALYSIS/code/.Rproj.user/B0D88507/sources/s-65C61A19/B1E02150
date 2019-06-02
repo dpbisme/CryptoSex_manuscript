@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1558666101549.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B1E02150",
+    "lastKnownWriteTime" : 1559494966,
+    "last_content_update" : 1559494966192,
+    "path" : "~/github_manuscripts/CryptoSex/ANALYSIS/code/Rmarkdown_CHMI_template.Rmd",
+    "project_path" : "Rmarkdown_CHMI_template.Rmd",
+    "properties" : {
+        "cursorPosition" : "525,9",
+        "last_setup_crc32" : "65C61A19ba1ab453",
+        "scrollLine" : "517"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,13 @@
+{
+	"n_targets": 3805,
+	"n_bootstraps": 60,
+	"n_processed": 82027067,
+	"n_pseudoaligned": 2044992,
+	"n_unique": 2043317,
+	"p_pseudoaligned": 2.5,
+	"p_unique": 2.5,
+	"kallisto_version": "0.45.0",
+	"index_version": 10,
+	"start_time": "Thu May 23 21:57:18 2019",
+	"call": "kallisto quant -i CryptoIndex -o crypto_24hr_rep1 -t 24 -b 60 24hr-1-RNeasy_S1_mergedLanes_R1.fastq.gz 24hr-1-RNeasy_S1_mergedLanes_R2.fastq.gz"
+}

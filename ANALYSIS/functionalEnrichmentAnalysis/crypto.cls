@@ -1,0 +1,3 @@
+21 6 1
+# female_invitro female_invivo asexual_invitro sporozoite asexual_24hr sexual_48hr
+female_invitro female_invitro female_invitro female_invitro female_invivo female_invivo female_invivo female_invivo asexual_invitro asexual_invitro asexual_invitro asexual_invitro sporozoite sporozoite sporozoite asexual_24hr asexual_24hr asexual_24hr sexual_48hr sexual_48hr sexual_48hr 

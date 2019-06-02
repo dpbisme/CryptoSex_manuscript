@@ -1,0 +1,5 @@
+Pathway	Source	Gene #	Enrichment (panel A)	Enrichment(panel B)
+carbohydrate metabolism	GO:0005975	27	NES = 1.7, FDR = 0.006	NES = 0.61, FDR = 0.96
+Oocyst wall proteome	Truong and Ferrari, 2006	271	NES = 1.49, FDR = 0.001	NES = 0.57, FDR = 1.0
+DNA metabolic process	GO:0006259	59	NES = 1.69, FDR = 0.001	NES = -1.41, FDR = 0.03
+Oxidation-reduction	GO:0055114	48	NES = 2.00, FDR = 0.0	FDR = -0.46, FDR = 1.0

@@ -1,0 +1,13 @@
+{
+	"n_targets": 3805,
+	"n_bootstraps": 60,
+	"n_processed": 34618173,
+	"n_pseudoaligned": 312282,
+	"n_unique": 312094,
+	"p_pseudoaligned": 0.9,
+	"p_unique": 0.9,
+	"kallisto_version": "0.45.0",
+	"index_version": 10,
+	"start_time": "Thu May 23 21:52:31 2019",
+	"call": "kallisto quant -i CryptoIndex -o asexual_invitro3 -t 24 -b 60 --single -l 500 -s 100 Asexual_sort_invitro3_mergedLanes.fastq.gz"
+}

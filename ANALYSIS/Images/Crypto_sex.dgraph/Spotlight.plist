@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Labels</key>
+	<string>Rank in ordered dataset
+Running Enrichment Score (ES)
+Position
+Running_ES vs Rank_in_gene_list 
+Running_ES vs Rank_in_gene_list 
+Position vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+Position vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+Position vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+DMC1
+HOP2
+SPO11
+DNA ligase
+COWP1
+MUTL
+***
+***
+***
+***
+
+Rank in ordered dataset
+Running Enrichment Score (ES)
+Position vs Rank_in_gene_list 
+Running_ES vs Rank_in_gene_list 
+Running_ES vs Rank_in_gene_list 
+Position vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+Position vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+Position vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+Running_ES vs Rank_in_gene_list
+DMC1
+HOP2
+SPO11
+DNA ligase
+COWP1
+MUTL
+ns
+ns
+ns
+ns
+</string>
+	<key>Text</key>
+	<string>Enrichment stats:
+oxidation-reduction (NES=1.99, FDR=0)
+oocyst proteome (NES=1.76, FDR=0.001)
+DNA metabolic process (NES=1.68, FDR=0.005)
+carbohydrate metabolism (NES=1.67, FDR=0.004)
+
+Enrichment stats:
+oxidation-reduction (NES=0.46, FDR=1)
+oocyst proteome (NES=0.79, FDR=1)
+DNA metabolic process (NES=1.42, FDR=0.13)
+carbohydrate metabolism (NES=-0.57, FDR=0.98)
+</string>
+</dict>
+</plist>
