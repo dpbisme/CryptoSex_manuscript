@@ -1,0 +1,11 @@
+"0","# reading in the leading edge for each of the 4 signatures
+leadingEdge <- read_tsv(""../functionalEnrichmentAnalysis/leadingEdge.txt"")
+"
+"2","Parsed with column specification:
+cols(
+  carbohydrate_metabolism = [31mcol_character()[39m,
+  oocyst_proteomics = [31mcol_character()[39m,
+  DNA_metab = [31mcol_character()[39m,
+  `oxidation-reduction` = [31mcol_character()[39m
+)
+"

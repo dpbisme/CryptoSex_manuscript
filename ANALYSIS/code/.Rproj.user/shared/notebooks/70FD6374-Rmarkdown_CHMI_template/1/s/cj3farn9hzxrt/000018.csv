@@ -1,0 +1,14 @@
+"0","# plotting heatmap
+heatmap.2(DiffGenes, 
+          Rowv=as.dendrogram(clustRows), 
+          Colv=NA,
+          RowSideColors=module.color,
+          col=myheatcol, scale='row', 
+          labRow=NA, key = 1,
+          density.info=""none"", trace=""none"",  
+          margins = c(10,30),
+          dendrogram=""none"",
+          cexRow=1, cexCol=0.75) 
+"
+"2","Error in plot.new() : figure margins too large
+"

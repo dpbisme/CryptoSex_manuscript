@@ -170,7 +170,7 @@ heatmap.2(DiffGenes,
 **`r nrow(DiffGenes)`** out of a total of `r nrow(v.DEGList.batchCorrected$E)` were identified as differentially expressed between sporozoites compared to asexual, sexual or female stages
 
 
-ggplot(pca.res.df, aes(x=PC1, y=PC2, color=sex, shape=origin)) +
+ggplot(pca.res.df, aes(x=PC1, y=PC2, shape=origin)) +
   geom_point(size=8) +
   theme(legend.position="right") + 
   xlab(paste0("PC1 (",pc.per[1],"%",")")) + 
@@ -182,3 +182,55 @@ ggplot(pca.res.df, aes(x=PC1, y=PC2, color=sex, shape=origin)) +
         axis.title=element_text(size=18),
         legend.text=element_text(size=14),
         legend.title=element_text(size=16, face="bold"))
+
+
+ggplot(myTopHits1, aes(y=-log10(adj.P.Val), x=logFC, text = paste("Symbol:", geneSymbol))) +
+  geom_point(size=2) +
+  ylim(-0.5,15) +
+  xlim(-15,15) +
+  geom_hline(yintercept = -log10(0.01), linetype="longdash", colour="grey", size=0.75) +
+  geom_vline(xintercept = 1, linetype="longdash", colour="grey", size=0.75) +
+  geom_vline(xintercept = -1, linetype="longdash", colour="grey", size=0.75) +
+  theme_bw() + 
+  theme(axis.text=element_text(size=16),
+        axis.title=element_text(size=18),
+        panel.border = element_rect(colour = "black", fill=NA, size=1))
+
+ggplot(myTopHits1, aes(y=-log10(adj.P.Val), x=logFC, text = paste("Symbol:", geneSymbol))) +
+  geom_point(size=4, alpha = 1/10) +
+  coord_fixed() +
+  geom_point(mapping =NULL, myTopHits1.carb_metab, size = 4, colour= "#ED3624", inherit.aes = TRUE) +
+  geom_point(mapping =NULL, myTopHits1.oocyst_proteomics, size = 4, colour= "#4492C4", inherit.aes = TRUE) +
+  geom_point(mapping =NULL, myTopHits1.DNA_metab, size = 4, colour= "#5BB95B", inherit.aes = TRUE) +
+  geom_point(mapping =NULL, myTopHits1.oxidoreductase, size = 4, colour= "#AA67B2", inherit.aes = TRUE) +
+  ylim(-0.5,15) +
+  xlim(-15,15) +
+  geom_hline(yintercept = -log10(0.01), linetype="longdash", colour="grey", size=0.75) +
+  geom_vline(xintercept = 1, linetype="longdash", colour="grey", size=0.75) +
+  geom_vline(xintercept = -1, linetype="longdash", colour="grey", size=0.75) +
+  #labs(title="females vs. asexual stages sorted from culture",
+  #subtitle = "Volcano plot comparing expression of genes between females and asexual stages \nsorted from cultures based on COWP1 and ENO, respectively.") +
+  theme_bw() + 
+  theme(axis.text=element_text(size=16),
+        axis.title=element_text(size=18),
+        panel.border = element_rect(colour = "black", fill=NA, size=1))
+
+ggplot(myTopHits2, aes(y=-log10(adj.P.Val), x=logFC, text = paste("Symbol:", geneSymbol))) +
+  geom_point(size=4, alpha = 1/10) +
+  coord_fixed() +
+  geom_point(mapping =NULL, myTopHits2.carb_metab, size = 4, colour= "#ED3624", inherit.aes = TRUE) +
+  geom_point(mapping =NULL, myTopHits2.oocyst_proteomics, size = 4, colour= "#4492C4", inherit.aes = TRUE) +
+  geom_point(mapping =NULL, myTopHits2.DNA_metab, size = 4, colour= "#5BB95B", inherit.aes = TRUE) +
+  geom_point(mapping =NULL, myTopHits2.oxidoreductase, size = 4, colour= "#AA67B2", inherit.aes = TRUE) +
+  geom_point(mapping =NULL, myTopHits2.gliding, size = 4, colour= "#F0E342", inherit.aes = TRUE) +
+  ylim(-0.5,15) +
+  xlim(-15,15) +
+  geom_hline(yintercept = -log10(0.01), linetype="longdash", colour="grey", size=0.75) +
+  geom_vline(xintercept = 1, linetype="longdash", colour="grey", size=0.75) +
+  geom_vline(xintercept = -1, linetype="longdash", colour="grey", size=0.75) +
+  #labs(title="Females from infected mice vs culture",
+  #subtitle = "Volcano plot comparing expression of genes between females \nsorted from in infected mice versus those sorted from culture.") +
+  theme_bw() + 
+  theme(axis.text=element_text(size=16),
+        axis.title=element_text(size=18),
+        panel.border = element_rect(colour = "black", fill=NA, size=1))

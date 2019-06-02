@@ -1,0 +1,783 @@
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#vuoazaryag .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#vuoazaryag .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#vuoazaryag .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#vuoazaryag .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#vuoazaryag .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#vuoazaryag .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#vuoazaryag .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#vuoazaryag .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#vuoazaryag .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#vuoazaryag .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#vuoazaryag .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#vuoazaryag .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vuoazaryag .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vuoazaryag .gt_row {
+  padding: 8px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#vuoazaryag .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#vuoazaryag .gt_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 8px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#vuoazaryag .gt_grand_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  padding: 8px;
+  /* grand_summary_row.padding */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+}
+
+#vuoazaryag .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#vuoazaryag .gt_first_grand_summary_row {
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #A8A8A8;
+}
+
+#vuoazaryag .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table_body.border.bottom.color */
+}
+
+#vuoazaryag .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#vuoazaryag .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#vuoazaryag .gt_center {
+  text-align: center;
+}
+
+#vuoazaryag .gt_left {
+  text-align: left;
+}
+
+#vuoazaryag .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vuoazaryag .gt_font_normal {
+  font-weight: normal;
+}
+
+#vuoazaryag .gt_font_bold {
+  font-weight: bold;
+}
+
+#vuoazaryag .gt_font_italic {
+  font-style: italic;
+}
+
+#vuoazaryag .gt_super {
+  font-size: 65%;
+}
+
+#vuoazaryag .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="vuoazaryag" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>oxidation-reduction</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>DNA_metab</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>carb_metab</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>oocyst_proteomics_20</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>CryptoDB.org; GO:0055114</td>
+<td class='gt_row gt_left'>CryptoDB.org; GO:0006259</td>
+<td class='gt_row gt_left'>CryptoDB.org; GO:0005975</td>
+<td class='gt_row gt_left'>Truong and Ferrari, 2006. Genes with &gt;= 20 unique peptide sequences per sample</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd1_3440</td>
+<td class='gt_row gt_left gt_striped'>Cgd3_2720</td>
+<td class='gt_row gt_left gt_striped'>cgd1_2040</td>
+<td class='gt_row gt_left gt_striped'>cgd1_2040</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd2_210</td>
+<td class='gt_row gt_left'>cgd1_1420</td>
+<td class='gt_row gt_left'>cgd1_3020</td>
+<td class='gt_row gt_left'>cgd1_3020</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd2_2510</td>
+<td class='gt_row gt_left gt_striped'>cgd1_310</td>
+<td class='gt_row gt_left gt_striped'>cgd1_3060</td>
+<td class='gt_row gt_left gt_striped'>cgd1_3170</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd2_3570</td>
+<td class='gt_row gt_left'>cgd2_1100</td>
+<td class='gt_row gt_left'>cgd2_210</td>
+<td class='gt_row gt_left'>cgd1_330</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd2_4320</td>
+<td class='gt_row gt_left gt_striped'>cgd2_1250</td>
+<td class='gt_row gt_left gt_striped'>cgd2_2130</td>
+<td class='gt_row gt_left gt_striped'>cgd1_3710</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd3_2050</td>
+<td class='gt_row gt_left'>cgd2_1600</td>
+<td class='gt_row gt_left'>cgd2_3200</td>
+<td class='gt_row gt_left'>cgd1_3780</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd3_2180</td>
+<td class='gt_row gt_left gt_striped'>cgd2_2060</td>
+<td class='gt_row gt_left gt_striped'>cgd2_3260</td>
+<td class='gt_row gt_left gt_striped'>cgd1_3810</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd3_3120</td>
+<td class='gt_row gt_left'>cgd2_2500</td>
+<td class='gt_row gt_left'>cgd2_3270</td>
+<td class='gt_row gt_left'>cgd1_590</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd3_3430</td>
+<td class='gt_row gt_left gt_striped'>cgd2_3180</td>
+<td class='gt_row gt_left gt_striped'>cgd3_1400</td>
+<td class='gt_row gt_left gt_striped'>cgd1_640</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd3_3910</td>
+<td class='gt_row gt_left'>cgd2_40</td>
+<td class='gt_row gt_left'>cgd3_1580</td>
+<td class='gt_row gt_left'>cgd1_750</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd3_460</td>
+<td class='gt_row gt_left gt_striped'>cgd2_4070</td>
+<td class='gt_row gt_left gt_striped'>cgd4_2600</td>
+<td class='gt_row gt_left gt_striped'>cgd2_20</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd3_990</td>
+<td class='gt_row gt_left'>cgd2_510</td>
+<td class='gt_row gt_left'>cgd4_3310</td>
+<td class='gt_row gt_left'>cgd2_2700</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd4_1330</td>
+<td class='gt_row gt_left gt_striped'>cgd2_700</td>
+<td class='gt_row gt_left gt_striped'>cgd5_1960</td>
+<td class='gt_row gt_left gt_striped'>cgd2_3110</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd4_2700</td>
+<td class='gt_row gt_left'>cgd3_1450</td>
+<td class='gt_row gt_left'>cgd5_2910</td>
+<td class='gt_row gt_left'>cgd2_3200</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd4_2900</td>
+<td class='gt_row gt_left gt_striped'>cgd3_3110</td>
+<td class='gt_row gt_left gt_striped'>cgd5_3140</td>
+<td class='gt_row gt_left gt_striped'>cgd2_3260</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd4_4460</td>
+<td class='gt_row gt_left'>cgd3_3170</td>
+<td class='gt_row gt_left'>cgd6_2450</td>
+<td class='gt_row gt_left'>cgd2_4320</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd4_690</td>
+<td class='gt_row gt_left gt_striped'>cgd3_3820</td>
+<td class='gt_row gt_left gt_striped'>cgd6_3280</td>
+<td class='gt_row gt_left gt_striped'>cgd2_490</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd4_740</td>
+<td class='gt_row gt_left'>cgd3_390</td>
+<td class='gt_row gt_left'>cgd6_3750</td>
+<td class='gt_row gt_left'>cgd2_790</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd5_2440</td>
+<td class='gt_row gt_left gt_striped'>cgd4_1490</td>
+<td class='gt_row gt_left gt_striped'>cgd6_3790</td>
+<td class='gt_row gt_left gt_striped'>cgd3_1290</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd5_2670</td>
+<td class='gt_row gt_left'>cgd4_1930</td>
+<td class='gt_row gt_left'>cgd6_3800</td>
+<td class='gt_row gt_left'>cgd3_1400</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd5_3230</td>
+<td class='gt_row gt_left gt_striped'>cgd4_2053</td>
+<td class='gt_row gt_left gt_striped'>cgd7_4270</td>
+<td class='gt_row gt_left gt_striped'>cgd3_1770</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd5_70</td>
+<td class='gt_row gt_left'>cgd4_3920</td>
+<td class='gt_row gt_left'>cgd7_470</td>
+<td class='gt_row gt_left'>cgd3_3370</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd5_750</td>
+<td class='gt_row gt_left gt_striped'>cgd4_430</td>
+<td class='gt_row gt_left gt_striped'>cgd7_480</td>
+<td class='gt_row gt_left gt_striped'>cgd3_3430</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd6_1950</td>
+<td class='gt_row gt_left'>cgd4_440</td>
+<td class='gt_row gt_left'>cgd7_910</td>
+<td class='gt_row gt_left'>cgd3_3770</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd6_20</td>
+<td class='gt_row gt_left gt_striped'>cgd4_780</td>
+<td class='gt_row gt_left gt_striped'>cgd8_1420</td>
+<td class='gt_row gt_left gt_striped'>cgd4_2260</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd6_2470</td>
+<td class='gt_row gt_left'>cgd4_970</td>
+<td class='gt_row gt_left'>cgd8_1920</td>
+<td class='gt_row gt_left'>cgd4_2300</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd6_3280</td>
+<td class='gt_row gt_left gt_striped'>cgd5_1180</td>
+<td class='gt_row gt_left gt_striped'>cgd8_2160</td>
+<td class='gt_row gt_left gt_striped'>cgd4_2600</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd6_3720</td>
+<td class='gt_row gt_left'>cgd5_2560</td>
+<td class='gt_row gt_left'>cgd8_4940</td>
+<td class='gt_row gt_left'>cgd4_3090</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd6_3750</td>
+<td class='gt_row gt_left gt_striped'>cgd5_410</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd4_3160</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd6_3790</td>
+<td class='gt_row gt_left'>cgd6_1580</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd4_3270</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd6_3863</td>
+<td class='gt_row gt_left gt_striped'>cgd6_1710</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd4_3530</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd6_690</td>
+<td class='gt_row gt_left'>cgd6_1940</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd5_1490</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd6_700</td>
+<td class='gt_row gt_left gt_striped'>cgd6_1950</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd5_1580</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd7_1000</td>
+<td class='gt_row gt_left'>cgd6_2390</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd5_1640</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd7_1900</td>
+<td class='gt_row gt_left gt_striped'>cgd6_240</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd5_1960</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd7_270</td>
+<td class='gt_row gt_left'>cgd6_2610</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd5_2070</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd7_470</td>
+<td class='gt_row gt_left gt_striped'>cgd6_4420</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd5_3160</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd7_480</td>
+<td class='gt_row gt_left'>cgd6_4783</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd5_4400</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd7_4933</td>
+<td class='gt_row gt_left gt_striped'>cgd6_5040</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd5_70</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd8_1433</td>
+<td class='gt_row gt_left'>cgd7_1690</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd5_750</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd8_1700</td>
+<td class='gt_row gt_left gt_striped'>cgd7_1720</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd6_120</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd8_1720</td>
+<td class='gt_row gt_left'>cgd7_2140</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd6_200</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd8_2330</td>
+<td class='gt_row gt_left gt_striped'>cgd7_2390</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd6_2090</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd8_2670</td>
+<td class='gt_row gt_left'>cgd7_2920</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd6_2450</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd8_3190</td>
+<td class='gt_row gt_left gt_striped'>cgd7_3110</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd6_3050</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd8_380</td>
+<td class='gt_row gt_left'>cgd7_3350</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd6_3080</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>cgd8_4230</td>
+<td class='gt_row gt_left gt_striped'>cgd7_4730</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd6_3190</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>cgd8_920</td>
+<td class='gt_row gt_left'>cgd8_1240</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd6_3790</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_1350</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd6_3920</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_1410</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd6_3990</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_1620</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd6_4460</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_1630</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd6_4760</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_1940</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd6_5440</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_2020</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd6_880</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_2380</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_1270</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_2940</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd7_1340</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_370</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_1730</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_3950</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd7_1830</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_4650</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_1890</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_4950</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd7_1900</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_5410</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_2250</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_610</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd7_300</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_870</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_3120</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd7_360</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_3670</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd7_3790</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_4020</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd7_4280</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_4450</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd7_4500</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_4760</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd7_480</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_4810</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd7_5000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd7_910</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_1270</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_1720</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_2790</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_2930</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_3430</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_350</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_3520</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_3900</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>NA</td>
+<td class='gt_row gt_left'>cgd8_430</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>NA</td>
+<td class='gt_row gt_left gt_striped'>cgd8_440</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>

@@ -332,7 +332,7 @@ ggplot(myTopHits2, aes(y=-log10(adj.P.Val), x=logFC, text = paste("Symbol:", gen
 
 ***
 
-## Identification of co-expression modules
+## Heatmap: identification of co-expression modules
 
 ```{r DEGs female}
 colnames(v.myDGEList.filtered.norm$E) <- SampleLabels[1:12]
@@ -357,7 +357,7 @@ heatmap.2(DiffGenes,
           col=myheatcol, scale='row', 
           labRow=NA, key = 1,
           density.info="none", trace="none",  
-          margins = c(10,30),
+          margins = c(10,25),
           dendrogram="none",
           cexRow=1, cexCol=0.75) 
 ```
@@ -544,7 +544,7 @@ p1 <- ggplot(log2.cpm.df2, aes(x=sample, y=expression, fill=sample)) +
 # filtering to keep only genes that had > 10 cpm in at least 3 samples
 cpm2 <- cpm(myDGEList2)
 keepers2 <- rowSums(cpm2>10)>=3 
-myDGEList.filtered2 <- myDGEList[keepers2,]
+myDGEList.filtered2 <- myDGEList2[keepers2,]
 # normalize using TMM method from calnormfactors function in EdgeR package
 myDGEList.filtered.norm2 <- calcNormFactors(myDGEList.filtered2, method = "TMM")
 log2.cpm.filtered.norm2 <- cpm(myDGEList.filtered.norm2, log=TRUE)
@@ -572,15 +572,125 @@ p2 <- ggplot(log2.cpm.filtered.norm.df2, aes(x=sample, y=expression, fill=sample
 plot_grid(p1, p2, labels = c("A", "B"))
 ```
 
-## set up contrasts
-```{r contrasts, message=FALSE, warning=FALSE}
-fit <- lmFit(v.DEGList.filtered.norm, design)
 
-contrast.matrix <- makeContrasts(sexualDev = c48hr - c24hr,
-                                 asexualGrow = c24hr - sporo,
-                                 levels=design)
+## PCA of data after filtering and normalization
+
+```{r PCA filtered norm2}
+# running PCA
+pca.res2 <- prcomp(t(log2.cpm.filtered.norm2), scale.=F, retx=T)
+pc.var2<-pca.res2$sdev^2
+pc.per2<-round(pc.var2/sum(pc.var2)*100, 1)
+
+# converting PCA result into a tibble for plotting
+pca.res.df2 <- as_tibble(pca.res2$x)
+# plotting PCA
+ggplot(pca.res.df2, aes(x=PC1, y=PC2, color=sex[13:21], shape=origin[13:21])) +
+  geom_point(size=4) +
+  theme(legend.position="right") + 
+  xlab(paste0("PC1 (",pc.per[1],"%",")")) + 
+  ylab(paste0("PC2 (",pc.per[2],"%",")")) + 
+  labs(title="PCA of sporozoites vs in vitro timecourse",
+       subtitle = "Principal component analysis (PCA) showing separation \nbetween sporozoites and both asexual (24hr) and sexual (48hr) stages from bulk cultures",
+       color = "sex", shape="origin") +
+  theme_bw() + 
+  theme(plot.title = element_text(face="bold"))
+```
+
+## Volcano plot: sexual development in bulk culture - \textcolor{red}{Supp. Fig 8A}
+
+Many genes in the upper right of the plot, which represent genes that are significantly **higher** at 48 hrs in bulk culture, compared to 24 hr.  These represent genes involved in sexualization of *C. parvum*.
+
+
+```{r vplot5}
+# setting up model matrix without an intercept
+design2 <- model.matrix(~0 + group[13:21, drop = TRUE])
+colnames(design2) <- levels(group[13:21, drop = TRUE])
+
+# using VOOM function from Limma package to apply precision weights to each gene
+v.myDGEList.filtered.norm2 <- voom(myDGEList.filtered.norm2, design2, plot = FALSE)
+fit2 <- lmFit(v.myDGEList.filtered.norm2, design2)
+
+# setting up contrast matrix for two main pairwise comparisons
+contrast.matrix2 <- makeContrasts(sexualDevelop = sexual_invitro - asexual_invitro,
+                                 asexualGrowth = asexual_invitro - sporozoite_invivo,
+                                 levels=design2)
+
+fits2 <- contrasts.fit(fit2, contrast.matrix2)
+# extracting stats 
+ebFit2 <- eBayes(fits2)
+# listing stats for all genes in the dataset to be used for making volcano plot
+myTopHits2 <- topTable(ebFit2, adjust ="BH", coef=1, number=10000, sort.by="logFC")
+myTopHits2 <- as_tibble(myTopHits2, rownames = "geneSymbol")
+# volcano plot
+ggplot(myTopHits2, aes(y=-log10(adj.P.Val), x=logFC, text = paste("Symbol:", geneSymbol))) +
+  geom_point(size=2) +
+  ylim(-0.5,15) +
+  xlim(-15,15) +
+  geom_hline(yintercept = -log10(0.01), linetype="longdash", colour="grey", size=1) +
+  geom_vline(xintercept = 1, linetype="longdash", colour="#BE684D", size=1) +
+  geom_vline(xintercept = -1, linetype="longdash", colour="#2C467A", size=1) +
+  labs(title="sexual vs. asexual stages from bulk culture",
+       subtitle = "Volcano plot comparing expression of genes between sexual (24hr) and asexual stages (48hr) \nfrom bulk cultures of infected HCT-8 cells.") +
+  theme_bw() + 
+  theme(axis.text=element_text(size=16),
+        axis.title=element_text(size=18),
+        plot.title = element_text(face="bold"),
+        panel.border = element_rect(colour = "black", fill=NA, size=1))
 
 ```
+
+
+## Volcano plot: asexual growth
+```{r vplot6}
+myTopHits2 <- topTable(ebFit2, adjust ="BH", coef=2, number=10000, sort.by="logFC")
+myTopHits2 <- as_tibble(myTopHits2, rownames = "geneSymbol")
+# volcano plot
+ggplot(myTopHits2, aes(y=-log10(adj.P.Val), x=logFC, text = paste("Symbol:", geneSymbol))) +
+  geom_point(size=2) +
+  ylim(-0.5,15) +
+  xlim(-15,15) +
+  geom_hline(yintercept = -log10(0.01), linetype="longdash", colour="grey", size=1) +
+  geom_vline(xintercept = 1, linetype="longdash", colour="#BE684D", size=1) +
+  geom_vline(xintercept = -1, linetype="longdash", colour="#2C467A", size=1) +
+  labs(title="sporozoite vs asexual",
+       subtitle = "Volcano plot comparing expression of genes between sporozoites \nand asexual stages from bulk culture at 24hr.") +
+  theme_bw() + 
+  theme(axis.text=element_text(size=16),
+        axis.title=element_text(size=18),
+        plot.title = element_text(face="bold"),
+        panel.border = element_rect(colour = "black", fill=NA, size=1))
+
+```
+
+## Heatmap: identification of co-expression modules - \textcolor{red}{Supp. Fig 8B}
+
+```{r DEGs sporozoite}
+colnames(v.myDGEList.filtered.norm2$E) <- SampleLabels[13:21]
+# using decideTests to identify DEGs based on FDR and logFC
+results2 <- decideTests(ebFit2, method="global", adjust.method="BH", p.value=0.01, lfc=1)
+# pulling these genes out along with their expression data
+DiffGenes2 <- v.myDGEList.filtered.norm2$E[results2[,1] !=0 | results2[,2] !=0,]
+clustRows2 <- hclust(as.dist(1-cor(t(DiffGenes2), method="pearson")), method="average")
+clustColumns2 <- hclust(as.dist(1-cor(DiffGenes2, method="spearman")), method="complete")
+clust.assign2 <- cutree(clustRows2, k=6)
+
+module.color2 <- rainbow(length(unique(clust.assign2)), start=0.1, end=0.9) 
+module.color2 <- module.color2[as.vector(clust.assign2)] 
+
+# plotting heatmap
+heatmap.2(DiffGenes2, 
+          Rowv=as.dendrogram(clustRows2), 
+          Colv=NA,
+          RowSideColors=module.color2,
+          col=myheatcol, scale='row', 
+          labRow=NA, key = 1,
+          density.info="none", trace="none",  
+          margins = c(10,25),
+          dendrogram="none",
+          cexRow=1, cexCol=0.75) 
+```
+
+**`r nrow(DiffGenes2)`** out of a total of **`r nrow(v.myDGEList.filtered.norm2$E)`** were identified as differentially expressed between sexual (48hr) versus asexual stages (24hr) from bulk cultures of infected HCT-8 cells, and/or between asexual stages from bulk culture (24hr) versus sporozoites.  
 
 # Function grouping of genes
 
@@ -897,7 +1007,7 @@ heatmap.2(myAP2.matrix, Rowv=as.dendrogram(hrAP2), Colv=NA,
 ```
 
 
-# Global analysis that incorporates sporozoites and *in vitro* timecourse
+# Global analysis that incorporates all samples across all experiments
 
 ```{r combined analysis}
 load("Txi_gene")
