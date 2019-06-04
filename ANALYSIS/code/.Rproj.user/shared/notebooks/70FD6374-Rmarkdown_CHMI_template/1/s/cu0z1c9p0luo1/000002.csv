@@ -1,5 +1,0 @@
-"0","cTx <-read_tsv(""Cryptosporidium_parvum_iowa_ii.ASM16534v1.37.ena.tsv"")
-"
-"2","Error in read_tsv(""Cryptosporidium_parvum_iowa_ii.ASM16534v1.37.ena.tsv"") : 
-  could not find function ""read_tsv""
-"
