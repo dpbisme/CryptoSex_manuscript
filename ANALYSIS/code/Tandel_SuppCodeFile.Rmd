@@ -5,7 +5,7 @@ date: "<center> produced on _`r Sys.Date()`_ <center>"
 output:
   pdf_document:
     toc: true
-    toc_depth: 2
+    toc_depth: 3
     number_sections: true
     fig_caption: yes
 header-includes:
@@ -63,7 +63,6 @@ library(gplots)
 library(limma)
 library(gt)
 library(cowplot)
-library(UpSetR)
 library(WGCNA)
 ```
 
@@ -82,7 +81,7 @@ fastqc ../../DATA/raw/*.gz -t 24 -o /CryptoSex_manuscript/QA/fastqc
 
 ## Pseudoalignment of raw reads with Kallisto
 
-Raw reads were mapped to the *Cryptosporidium parvum* reference transcriptome available on Ensembl [here](ftp://ftp.ensemblgenomes.org/pub/protists/release-43/fasta/protists_alveolata1_collection/cryptosporidium_parvum_iowa_ii/cdna/) using [Kallisto](https://pachterlab.github.io/kallisto/), version 0.45.  The quality of raw reads, as well as the results of Kallisto mapping are summarized using [multiqc](https://multiqc.info/).  The resulting multiqc report can be found in the [github project repo](https://github.com/dpbisme/CryptoSex_manuscript) in the `/CryptoSex_manuscript/QA/` directory
+Raw reads were mapped to the *Cryptosporidium parvum* reference transcriptome available on Ensembl [here](ftp://ftp.ensemblgenomes.org/pub/protists/release-43/fasta/protists_alveolata1_collection/cryptosporidium_parvum_iowa_ii/cdna/) using [Kallisto](https://pachterlab.github.io/kallisto/), version 0.45.  The quality of raw reads, as well as the results of Kallisto mapping are summarized using [multiqc](https://multiqc.info/).  The resulting multiqc report can be found in the [github project repo](https://github.com/dpbisme/CryptoSex_manuscript) in the `/CryptoSex_manuscript/QA/` directory. *Note*: due to size limitation, neither the reference fastq file nor the indexed fastq could be stored in the GitHub repo.
 
 ```{bash read alignment, eval=FALSE}
 # build index from reference fasta from Ensembl C. parvum Iowa II transcriptome 
@@ -242,7 +241,7 @@ plot_grid(p1, p2, labels = c("A", "B"))
 
 ***
 
-Filtering and normalization were carried out to improve our ability to detect differentially expressed genes.  For filtering, only genes with >= 10 counts per million (CPM) in at least 4 or more samples kept.  This reduced the number of genes from `r nrow(myDGEList)` to `r nrow(myDGEList.filtered)`.  In addition, the TMM method was used for between-sample normalization .
+Filtering and normalization were carried out to improve our ability to detect differentially expressed genes.  For filtering, only genes with >= 10 counts per million (CPM) in at least 4 or more samples kept.  This reduced the number of genes from **`r nrow(myDGEList)`** to **`r nrow(myDGEList.filtered)`**.  In addition, the [TMM method](https://doi.org/10.1186/gb-2010-11-3-r25) was used for between-sample normalization.
 
 ## PCA of data after filtering and normalization
 
@@ -701,7 +700,7 @@ myTopHits3.oxidoreductase <- subset(myTopHits3, geneSymbol %in% rownames(oxidore
 
 # volcano plot
 ggplot(myTopHits3, aes(y=-log10(adj.P.Val), x=logFC, text = paste("Symbol:", geneSymbol))) +
-  geom_point(size=4) +
+  geom_point(size=4, alpha = 1/10) +
   geom_point(mapping =NULL, myTopHits3.carb_metab, size = 4, colour= "#ED3624", inherit.aes = TRUE) +
   geom_point(mapping =NULL, myTopHits3.oocyst_proteomics, size = 4, colour= "#4492C4", inherit.aes = TRUE) +
   geom_point(mapping =NULL, myTopHits3.DNA_metab, size = 4, colour= "#5BB95B", inherit.aes = TRUE) +
@@ -712,7 +711,8 @@ ggplot(myTopHits3, aes(y=-log10(adj.P.Val), x=logFC, text = paste("Symbol:", gen
   geom_vline(xintercept = 1, linetype="longdash", colour="#BE684D", size=1) +
   geom_vline(xintercept = -1, linetype="longdash", colour="#2C467A", size=1) +
   labs(title="sexual vs. asexual stages from bulk culture",
-       subtitle = "Volcano plot comparing expression of genes between sexual (24hr) and asexual stages (48hr) \nfrom bulk cultures of infected HCT-8 cells.") +
+       subtitle = "Volcano plot comparing expression of genes between sexual (24hr) and asexual stages (48hr) \nfrom bulk cultures of infected HCT-8 cells.
+       \nThis plot corresponds to Supp. Figure 9A in the manuscript.") +
   theme_bw() + 
   theme(axis.text=element_text(size=16),
         axis.title=element_text(size=18),
@@ -837,11 +837,11 @@ myMeiosis <- as_tibble(v.myDGEList.filtered.norm$E, rownames = "geneSymbol") %>%
 myMeiosis <-column_to_rownames(myMeiosis, var="geneSymbol")
 myMeiosis.matrix <- data.matrix(myMeiosis)
 
-hrMei <- hclust(as.dist(1-cor(t(myMeiosis.matrix), method="pearson")), method="complete") #cluster rows by pearson correlation
+hrMei <- hclust(as.dist(1-cor(t(myMeiosis.matrix), method="pearson")), method="complete") 
 
 heatmap.2(myMeiosis.matrix, Rowv=as.dendrogram(hrMei), Colv=NA,
           col=myheatcol, scale="row", density.info="none",
-          trace="none", key = 1,
+          trace="none", key = 1, labRow = NA,
           cexRow=0.5, cexCol=0.75, margins=c(10,20),
           dendrogram = "none")
 
@@ -881,7 +881,7 @@ Owxphr <- hclust(as.dist(1-cor(t(Owpx.matrix), method="pearson")), method="compl
 heatmap.2(Owpx.matrix, Rowv=as.dendrogram(Owxphr),  Colv=NA,
           col=myheatcol, scale="row", density.info="none",
           trace="none", key = 1,
-          cexRow=1, cexCol=0.75, margins=c(10,20),
+          cexRow=0.5, cexCol=0.75, margins=c(10,20),
           dendrogram = "none")
 ```
 
@@ -920,7 +920,7 @@ hrOxi <- hclust(as.dist(1-cor(t(Oxi.matrix), method="pearson")), method="complet
 heatmap.2(Oxi.matrix, Rowv=as.dendrogram(hrOxi), Colv=NA,
           col=myheatcol, scale="row", density.info="none",
           trace="none", key = 1,
-          cexRow=1, cexCol=0.75, margins=c(10,20),
+          cexRow=0.5, cexCol=0.75, margins=c(10,20),
           dendrogram = "none")
 ```
 
@@ -969,8 +969,8 @@ hrPro <- hclust(as.dist(1-cor(t(Protease.matrix), method="pearson")), method="co
 
 heatmap.2(Protease.matrix, Rowv=as.dendrogram(hrPro), Colv=NA,
           col=myheatcol, scale="row", density.info="none",
-          trace="none", key = 1,
-          cexRow=1, cexCol=0.75, margins=c(10,20),
+          trace="none", key = 1, labRow = NA,
+          cexRow=0.5, cexCol=0.75, margins=c(10,20),
           dendrogram = "none")
 
 
@@ -1098,7 +1098,7 @@ hrAMY <- hclust(as.dist(1-cor(t(myAMY.matrix), method="pearson")), method="compl
 heatmap.2(myAMY.matrix, Rowv=as.dendrogram(hrAMY), Colv=NA,
           col=myheatcol, scale="row", density.info="none",
           trace="none", key = 1,
-          cexRow=1, cexCol=0.75, margins=c(10,20),
+          cexRow=0.5, cexCol=0.75, margins=c(10,20),
           dendrogram = "none")
 
 
@@ -1128,7 +1128,7 @@ hrAP2 <- hclust(as.dist(1-cor(t(myAP2.matrix), method="pearson")), method="compl
 heatmap.2(myAP2.matrix, Rowv=as.dendrogram(hrAP2), Colv=NA,
           col=myheatcol, scale="row", density.info="none",
           trace="none", key = 1,
-          cexRow=1, cexCol=0.75, margins=c(10,20),
+          cexRow=0.5, cexCol=0.75, margins=c(10,20),
           dendrogram = "none")
 
 ```
