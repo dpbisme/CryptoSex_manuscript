@@ -7,10 +7,11 @@ The apicomplexan parasite *Cryptosporidium* is a leading global cause of severe 
 
 > The locations of the core components of this repo are outlined in the file system map below. In short, there are the following main directories:
 
- - /ANALYSIS/code - contains the Rmarkdown (.rmd) file the combines all code and outputs and was used to generate the supplementary code file included in the manuscript the pipeline.  In addition, code for manuscript figures based on RNAseq data are included in this document.
+ - /ANALYSIS/code - contains the Rmarkdown (.rmd) file the combines all code and outputs and was used to generate the supplementary code file included in the manuscript.  In addition, code for manuscript figures based on RNAseq data are included in this document.  Also contain the study design file that describes each sample.
  - /ANALYSIS/functionalEnrichmentAnalysis - includes text files used for running Gene Set Enrichment Analysis.
  - /ANALYSIS/images - includes individual images and adobe illustrator file for constructing figure 3 from the manuscript.  Also contains [DataGraph](http://www.visualdatatools.com/DataGraph/) file for making annotated enrichment plots.
  - /ANALYSIS/readmapping - includes Kallisto outputs and log files
- - /QA/fastqc - includes outputs from running [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) on all raw fastq files.  Also contains a [multiqc](https://multiqc.info/) html summary report that summarizes fastqc and kallisto results.
+ - /QA/fastqc - includes outputs from running [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) on all raw fastq files.  
+ - /QA/multiqc_report.html - [multiqc](https://multiqc.info/) html summary report that summarizes fastqc and kallisto results for each sample.
 
 ```

@@ -27,12 +27,6 @@ library(knitr)
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, linewidth=60)
 ```
 
-# Introduction
-
-This reproducible and dynamic report was created using Rmarkdown and the [Knitr package](https://yihui.name/knitr/), and summarizes the basic code and outputs (plots, tables, etc) produced during the course. The relative file paths indicated in the code below assume that your project working directly is structured as indicated **[here](https://github.com/dpbisme/MIDAS_RNAseq)**
-
-***
-
 # Background
 
 The apicomplexan parasite *Cryptosporidium* is a leading global cause of severe diarrheal disease and an important contributor to early childhood mortality. Currently there are no fully effective treatments or vaccines available. Transmission of the disease occurs through ingestion of oocysts, through direct contact or contaminated water or food. Oocysts are meiotic spores and the product of parasite sex. *Cryptosporidium* has a single host lifecycle where both asexual and sexual processes unfold in the intestine of infected hosts. Here we use the new-found ability to genetically engineer *Cryptosporidium* to make life cycle progression and parasite sex tractable. We derive reporter strains to follow parasite development in culture and infected mice and define the genes that orchestrate sex and oocyst formation through mRNA sequencing of sorted cells. After two days, parasites in cell culture show pronounced sexualization, but productive fertilization does not occur and infection falters. In contrast in infected mice, male gametes successfully fertilize females, leading to meiotic division and sporulation. To rigorously test for fertilization, we devised a two-component genetic crossing assay employing a Cre recombinase activated reporter. Our findings suggest obligate developmental progression towards sex in *Cryptosporidium*, which has important implications for the treatment and prevention of the infection.
